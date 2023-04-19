@@ -1,11 +1,11 @@
 module IceCube
   module I18n
-    def self.t(*args)
-      backend.t(*args)
+    def self.t(key, **kwargs)
+      backend.t(key, **kwargs)
     end
 
-    def self.l(*args)
-      backend.l(*args)
+    def self.l(key, **kwargs)
+      backend.l(key, **kwargs)
     end
 
     def self.backend
