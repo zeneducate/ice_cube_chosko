@@ -1,9 +1,7 @@
-require 'yaml'
+require "yaml"
 
 module IceCube
-
   class Rule
-
     attr_reader :uses
 
     # Is this a terminating schedule?
@@ -44,7 +42,7 @@ module IceCube
 
     # From yaml
     def self.from_yaml(yaml)
-      from_hash YAML::load(yaml)
+      from_hash YAML.safe_load(yaml, permitted_classes: [Date, Symbol, Time])
     end
 
     def to_hash
@@ -120,9 +118,6 @@ module IceCube
       def yearly(interval = 1)
         YearlyRule.new(interval)
       end
-
     end
-
   end
-
 end
